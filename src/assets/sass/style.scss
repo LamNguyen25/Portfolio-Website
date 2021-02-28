@@ -306,7 +306,12 @@ input, select, textarea {
 	color: #64ffda;
 }
 
-.selected-job-btn:hover {
+.selected-job-btn:active {
+	color: #64ffda;
+	background-color: #B8B8B8;
+}
+
+#job button:active{
 	color: #64ffda;
 	background-color: #B8B8B8;
 }
@@ -316,10 +321,9 @@ input, select, textarea {
 	flex-direction: row;
 }
 
-.jobDescription {
-	float: left;
+.scroll {
+	padding: 0 0 400vh;
 }
-
 /* Header */
 
 #home {
@@ -532,17 +536,11 @@ input, select, textarea {
 .sub-title {
 	margin-top: 30px;
 }
-
-.introduction{
-	display: block;
-	float: left;
-	padding-left: 30px;
-}
   
-  @-webkit-keyframes opacity {
+@-webkit-keyframes opacity {
 	0%, 100% {opacity:0;}
 	50% {opacity:1;}
-  }
+}
   
   @-webkit-keyframes change {
 	0%, 12.66%, 100% {transform:translate3d(0,0,0);}

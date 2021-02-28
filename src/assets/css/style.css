@@ -298,7 +298,12 @@ footer > p {
   color: #64ffda;
 }
 
-.selected-job-btn:hover {
+.selected-job-btn:active {
+  color: #64ffda;
+  background-color: #B8B8B8;
+}
+
+#job button:active {
   color: #64ffda;
   background-color: #B8B8B8;
 }
@@ -308,8 +313,8 @@ footer > p {
   flex-direction: row;
 }
 
-.jobDescription {
-  float: left;
+.scroll {
+  padding: 0 0 400vh;
 }
 
 /* Header */
@@ -512,12 +517,6 @@ footer > p {
 
 .sub-title {
   margin-top: 30px;
-}
-
-.introduction {
-  display: block;
-  float: left;
-  padding-left: 30px;
 }
 
 @-webkit-keyframes opacity {
