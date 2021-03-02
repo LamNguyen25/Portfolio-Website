@@ -1,15 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
 import './assets/css/style.css';
-import { Typography, Avatar, Grid,makeStyles, Card, CardActions, CardContent } from '@material-ui/core';
+import { Typography, Avatar, Grid,makeStyles } from '@material-ui/core';
+import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import LocomotiveScroll from "locomotive-scroll";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import './assets/css/locomotive-scroll.css';
 import './assets/css/locomotive-scroll.min.css';
 
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
@@ -18,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  
 }));
 
 function App() {
@@ -28,6 +32,7 @@ function App() {
   const [selectedJob, setSelectedJob] = useState();
   const [target, setTarget] = useState();
   var scroll = null;
+
   useEffect(() => {
     if(!jobNumber) {
       setJobNumber(1);
@@ -40,19 +45,17 @@ function App() {
       }
     }
 
-    // window.addEventListener("load", function(event) {
-    //   let lazyScroll = new LocomotiveScroll({
-    //   el: document.getElementById("main-content-scroll"),
-    //   smooth: true
-    //   });
-    // });
-
-    scroll = new LocomotiveScroll({
+    window.addEventListener("load", function(event) {
+      let lazyScroll = new LocomotiveScroll({
       el: document.getElementById("main-content-scroll"),
       smooth: true
+      });
     });
-    
-    
+
+    // scroll = new LocomotiveScroll({
+    //   el: document.getElementById("main-content-scroll"),
+    //   smooth: true
+    // });
   },[jobNumber]);
 
   var scrollToTarget = ((target) => {
@@ -129,6 +132,7 @@ function App() {
   })
 
   return (
+    <ThemeProvider theme={theme}>
     <div className="container-fluid p-0 m-0" id="main-content-scroll" data-scroll-container>
       <section id="home" className="wrapper" data-scroll-section>
         <nav id="navbar">
@@ -167,7 +171,7 @@ function App() {
                           variant="subtitle1" 
                           color="#858da4" 
                           align="left"
-                          data-scroll
+                          
                         >
                           I am a software engineer based in Los Angeles, CA, offering strong software engineering and application development principles across multiple platforms
                         </Typography>
@@ -217,7 +221,7 @@ function App() {
                   className="selected-job-btn" 
                   style={{marginBottom: '10px'}} 
                   onClick={()=>{setJobNumber(1)}}
-                  onClick={()=>{scrollToTarget('#experience')}}
+                  // onClick={()=>{scrollToTarget('#experience')}}
                 >
                   Skipli
                 </button>
@@ -226,7 +230,7 @@ function App() {
                 <button 
                   className="selected-job-btn"
                   onClick={()=>{setJobNumber(2)}}
-                  onClick={()=>{scrollToTarget('#experience')}}
+                  // onClick={()=>{scrollToTarget('#experience')}}
                 >
                   VNPN
                 </button>
@@ -234,13 +238,40 @@ function App() {
             </ul>
           </Grid>
 
-          <Grid item xs={6} sm data-scroll data-scroll data-scroll-speed="1" data-scroll-sticky>
+          <Grid item xs={6} sm data-scroll data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
             {selectedJob}
           </Grid>
           <Grid item xs={3}></Grid> 
         </Grid>
       </section>
-    </div>
+      <section id="projects" className="wrapper sec-3" data-scroll-section>
+        <div className="title">Some Things I’ve Built</div>
+        <div class="row">
+          <article class="col-6 col-12-xsmall work-item">
+            <a href="./images/fulls/01.jpg" class="image fit thumb"><img src="./images/thumbs/01.jpg" alt="" /></a>
+            <h3>Magna sed consequat tempus</h3>
+            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+          </article>
+          <article class="col-6 col-12-xsmall work-item">
+          <a href="./images/fulls/02.jpg" class="image fit thumb"><img src="./images/thumbs/02.jpg" alt="" /></a>
+            <h3>Magna sed consequat tempus</h3>
+            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+          </article>
+          <article class="col-6 col-12-xsmall work-item">
+            <a href="./images/bg.jpg" class="image fit thumb"><img src="./images/bg.jpg" alt="" /></a>
+            <h3>Magna sed consequat tempus</h3>
+            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+          </article>
+          <article class="col-6 col-12-xsmall work-item">
+            <a href="./images/bg.jpg" class="image fit thumb"><img src="./images/bg.jpg" alt="" /></a>
+            <h3>Magna sed consequat tempus</h3>
+            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+          </article>
+        </div>
+      </section>
+      </div>
+    </ThemeProvider>
+
   );
 }
 
