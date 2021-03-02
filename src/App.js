@@ -26,7 +26,8 @@ function App() {
 
   const [jobNumber, setJobNumber] = useState();
   const [selectedJob, setSelectedJob] = useState();
-
+  const [target, setTarget] = useState();
+  var scroll = null;
   useEffect(() => {
     if(!jobNumber) {
       setJobNumber(1);
@@ -39,13 +40,29 @@ function App() {
       }
     }
 
-    const scroll = new LocomotiveScroll({
-      // el: document.querySelector(".App"),
+    // window.addEventListener("load", function(event) {
+    //   let lazyScroll = new LocomotiveScroll({
+    //   el: document.getElementById("main-content-scroll"),
+    //   smooth: true
+    //   });
+    // });
+
+    scroll = new LocomotiveScroll({
+      el: document.getElementById("main-content-scroll"),
       smooth: true
     });
-    console.log(jobNumber);
+    
     
   },[jobNumber]);
+
+  var scrollToTarget = ((target) => {
+    scroll = new LocomotiveScroll({
+      el: document.getElementById("main-content-scroll"),
+      smooth: true
+    });
+    const sectionID = document.querySelector(target);
+    scroll.scrollTo(sectionID);
+  })
 
   var displayJob1 = (() => {
     return (
@@ -112,15 +129,15 @@ function App() {
   })
 
   return (
-    <div className="container-fluid p-0 m-0" data-scroll-container>
+    <div className="container-fluid p-0 m-0" id="main-content-scroll" data-scroll-container>
       <section id="home" className="wrapper" data-scroll-section>
         <nav id="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a onClick={()=>{scrollToTarget('#home')}}>Home</a></li>
+                <li><a onClick={()=>{scrollToTarget('#about')}}>About</a></li>
+                <li><a onClick={()=>{scrollToTarget('#experience')}}>Experience</a></li>
+                <li><a onClick={()=>{scrollToTarget('#projects')}}>Projects</a></li>
+                <li><a onClick={()=>{scrollToTarget('#contact')}}>Contact</a></li>
             </ul>
         </nav>
             <div className="row">
@@ -131,14 +148,14 @@ function App() {
                   </span>
                   
               </div>
-              <div className="col-6" data-scroll>
+              <div className="col-6">
                   <div className="title-content">
                       <div className="title-content__container">
-                          <p className="title-content__container__text">
+                          <p className="title-content__container__text" data-scroll> 
                             Hi, I am
                           </p>
                           
-                          <ul className="title-content__container__list">
+                          <ul className="title-content__container__list" data-scroll>
                           <li className="title-content__container__list__item"> Lam Nguyen !</li>
                           <li className="title-content__container__list__item"> Energetic !</li>
                           <li className="title-content__container__list__item"> Humble !</li>
@@ -150,6 +167,7 @@ function App() {
                           variant="subtitle1" 
                           color="#858da4" 
                           align="left"
+                          data-scroll
                         >
                           I am a software engineer based in Los Angeles, CA, offering strong software engineering and application development principles across multiple platforms
                         </Typography>
@@ -163,16 +181,16 @@ function App() {
       <section id="about" className="wrapper sec-1" data-scroll-section>
           <div className="title">About Me</div>
           <div className={classes.root }>
-            <Grid container spacing={2}> 
+            <Grid container spacing={2} > 
               <Grid item xs={6} style={{paddingLeft: '60px'}} >
-                  <Typography variant="subtitle1" align="right" data-scroll data-scroll-direction="vertical" data-scroll-position="bottom" data-scroll-speed="2" data-scroll-sticky>
+                  <Typography variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
                       Hello! I'm Lam, a software engineer based in Los Angeles, CA. I am a fast learner with a strong work ethic in a team or individual setting to drive product success and process efficiency
                   </Typography>
               </Grid>
-              <Grid item xs={6} data-scroll data-scroll-direction="vertical" data-scroll-position="right" data-scroll-speed="2" >
-              <Typography variant="subtitle1" align="left" 
+              <Grid item xs={6} >
+              <Typography variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical"
               >Here are a few technologies I've been working with recently:</Typography>
-                <ul className="skill-list">
+                <ul className="skill-list" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
                   <li><PlayArrowIcon style={{ color: '#64ffda' }}/> JavaScript</li>
                   <li><PlayArrowIcon style={{ color: '#64ffda' }}/> Java</li>
                   <li><PlayArrowIcon style={{ color: '#64ffda' }}/> Node.js</li>
@@ -191,14 +209,15 @@ function App() {
 
       <section id="experience" className="wrapper sec-2" data-scroll-section>
         <div className="title">Where I've Worked</div>
-        <Grid container spacing={2}> 
-          <Grid item xs={3}>
+        <Grid container spacing={2} > 
+          <Grid item xs={3} data-scroll> 
             <ul id="job">
               <li>
                 <button 
                   className="selected-job-btn" 
                   style={{marginBottom: '10px'}} 
                   onClick={()=>{setJobNumber(1)}}
+                  onClick={()=>{scrollToTarget('#experience')}}
                 >
                   Skipli
                 </button>
@@ -207,6 +226,7 @@ function App() {
                 <button 
                   className="selected-job-btn"
                   onClick={()=>{setJobNumber(2)}}
+                  onClick={()=>{scrollToTarget('#experience')}}
                 >
                   VNPN
                 </button>
@@ -214,7 +234,7 @@ function App() {
             </ul>
           </Grid>
 
-          <Grid item xs={6} sm container data-scroll-direction="vertical" data-scroll-speed="2">
+          <Grid item xs={6} sm data-scroll data-scroll data-scroll-speed="1" data-scroll-sticky>
             {selectedJob}
           </Grid>
           <Grid item xs={3}></Grid> 
