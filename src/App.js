@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './assets/css/style.css';
+import './assets/css/card.css';
 import { Typography, Avatar, Grid,makeStyles } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import LocomotiveScroll from "locomotive-scroll";
@@ -221,7 +222,6 @@ function App() {
                   className="selected-job-btn" 
                   style={{marginBottom: '10px'}} 
                   onClick={()=>{setJobNumber(1)}}
-                  // onClick={()=>{scrollToTarget('#experience')}}
                 >
                   Skipli
                 </button>
@@ -230,7 +230,6 @@ function App() {
                 <button 
                   className="selected-job-btn"
                   onClick={()=>{setJobNumber(2)}}
-                  // onClick={()=>{scrollToTarget('#experience')}}
                 >
                   VNPN
                 </button>
@@ -246,28 +245,115 @@ function App() {
       </section>
       <section id="projects" className="wrapper sec-3" data-scroll-section>
         <div className="title">Some Things I’ve Built</div>
-        <div class="row">
-          <article class="col-6 col-12-xsmall work-item">
-            <a href="./images/fulls/01.jpg" class="image fit thumb"><img src="./images/thumbs/01.jpg" alt="" /></a>
-            <h3>Magna sed consequat tempus</h3>
-            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+        <section className="card-list">
+          <article className="card">
+            <header className="card-header">
+              <p>Sep. 2020 - De. 2020</p>
+              <h2>FlanTasking Mobile App </h2>
+            </header>
+
+            <div className="card-author">
+              <a className="author-avatar" href="#">
+                <img src="" />
+              </a>
+              <svg className="half-circle" viewBox="0 0 106 57">
+                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+              </svg>
+
+              <div className="author-name">
+                <div className="author-name-prefix ">Technology:</div>
+                  React Native, JavaScript, Cloud Firestore 
+              </div>
+            </div>
+
+            <div className="tags">
+              <a href="https://github.com/LamNguyen25/task-management-mobile-app">Github</a>
+              <a href="#">Demo</a>
+            </div>
+
           </article>
-          <article class="col-6 col-12-xsmall work-item">
-          <a href="./images/fulls/02.jpg" class="image fit thumb"><img src="./images/thumbs/02.jpg" alt="" /></a>
-            <h3>Magna sed consequat tempus</h3>
-            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+
+          <article className="card">
+            <header className="card-header">
+              <p> April 2020 – May 2020</p>
+              <h2>Dictionary App</h2>
+            </header>
+
+            <div className="card-author">
+              <a className="author-avatar" href="#">
+                <img src="" />
+              </a>
+              <svg class="half-circle" viewBox="0 0 106 57">
+                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+              </svg>
+
+              <div className="author-name">
+                <div className="author-name-prefix ">Technology:</div>
+                  ReactJS, JavaScript, HTML, CSS, NodeJS, MongoDB
+              </div>
+            </div>
+
+            <div className="tags">
+              <a href="https://github.com/LamNguyen25/Dictionary-App">GitHub</a>
+              <a href="#">Demo</a>
+            </div>
+
           </article>
-          <article class="col-6 col-12-xsmall work-item">
-            <a href="./images/bg.jpg" class="image fit thumb"><img src="./images/bg.jpg" alt="" /></a>
-            <h3>Magna sed consequat tempus</h3>
-            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+
+          <article className="card">
+            <header className="card-header">
+              <p>May 2020</p>
+              <h2>PlanIt </h2>
+            </header>
+
+            <div className="card-author">
+              <a className="author-avatar" href="#">
+                <img src="" />
+              </a>
+              <svg className="half-circle" viewBox="0 0 106 57">
+                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+              </svg>
+
+              <div className="author-name">
+                <div className="author-name-prefix ">Technology:</div>
+                  React Native, JavaScript, Cloud Firestore 
+              </div>
+            </div>
+
+            <div className="tags">
+              <a href="https://github.com/LamNguyen25/PlanIt">GitHub</a>
+              <a href="#">Demo</a>
+            </div>
+
           </article>
-          <article class="col-6 col-12-xsmall work-item">
-            <a href="./images/bg.jpg" class="image fit thumb"><img src="./images/bg.jpg" alt="" /></a>
-            <h3>Magna sed consequat tempus</h3>
-            <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+
+          <article className="card">
+            <header className="card-header">
+              <p>Feb. 2021 - Present</p>
+              <h2>Skipli Mobile App</h2>
+            </header>
+
+            <div className="card-author">
+              <a className="author-avatar" href="#">
+                <img src="" />
+              </a>
+              <svg className="half-circle" viewBox="0 0 106 57">
+                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+              </svg>
+
+              <div className="author-name">
+                <div className="author-name-prefix ">Technology:</div>
+                    React Native, JavaScript, NodeJS, Cloud Firestore 
+              </div>
+            </div>
+
+            <div className="tags">
+              <a href="https://github.com/LamNguyen25/task-management-mobile-app">Github</a>
+              <a href="#">Demo</a>
+            </div>
+
           </article>
-        </div>
+        </section>
       </section>
       </div>
     </ThemeProvider>
