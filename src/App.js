@@ -254,7 +254,7 @@ function App() {
 
             <div className="card-author">
               <a className="author-avatar" href="#">
-                <img src="" />
+                <img src="./images/react-logo.png" />
               </a>
               <svg className="half-circle" viewBox="0 0 106 57">
                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -268,7 +268,7 @@ function App() {
 
             <div className="tags">
               <a href="https://github.com/LamNguyen25/task-management-mobile-app">Github</a>
-              <a href="#">Demo</a>
+              <a href="https://github.com/LamNguyen25/task-management-mobile-app">Demo</a>
             </div>
 
           </article>
@@ -295,7 +295,7 @@ function App() {
 
             <div className="tags">
               <a href="https://github.com/LamNguyen25/Dictionary-App">GitHub</a>
-              <a href="#">Demo</a>
+              <a href="https://github.com/LamNguyen25/Dictionary-App">Demo</a>
             </div>
 
           </article>
@@ -322,7 +322,7 @@ function App() {
 
             <div className="tags">
               <a href="https://github.com/LamNguyen25/PlanIt">GitHub</a>
-              <a href="#">Demo</a>
+              <a href="https://github.com/LamNguyen25/PlanIt">Demo</a>
             </div>
 
           </article>
@@ -348,7 +348,7 @@ function App() {
             </div>
 
             <div className="tags">
-              <a href="https://github.com/LamNguyen25/task-management-mobile-app">Github</a>
+              <a href="#">Github</a>
               <a href="#">Demo</a>
             </div>
 
