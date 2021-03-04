@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import './assets/css/style.css';
-import './assets/css/card.css';
+import './assets/sass/style.scss';
+import './assets/sass/card.scss';
 import { Typography, Avatar, Grid,makeStyles } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import LocomotiveScroll from "locomotive-scroll";
@@ -9,6 +9,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import './assets/css/locomotive-scroll.css';
 import './assets/css/locomotive-scroll.min.css';
+
+import profilePic from './images/profile-img.jpeg';
+import logo from './images/logo.svg';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -147,11 +150,10 @@ function App() {
         </nav>
             <div className="row">
               <div className="col-4">
-                  {/* <span className="profile-img fit"><img src="./images/profile-img.jpeg" alt="Profile pic" /></span> */}
-                  <span className="profile-img fit">
-                    <Avatar alt="Remy Sharp" src="/images/profile-img.jpeg" />
-                  </span>
-                  
+                  <span className="profile-img fit"><img src={profilePic} alt="Profile pic" /></span>
+                  {/* <span className="profile-img fit">
+                    <Avatar alt="Remy Sharp"  src={profilePic}/>
+                  </span> */}
               </div>
               <div className="col-6">
                   <div className="title-content">
@@ -254,7 +256,7 @@ function App() {
 
             <div className="card-author">
               <a className="author-avatar" href="#">
-                <img src="./images/react-logo.png" />
+                <img src={logo} />
               </a>
               <svg className="half-circle" viewBox="0 0 106 57">
                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -281,7 +283,7 @@ function App() {
 
             <div className="card-author">
               <a className="author-avatar" href="#">
-                <img src="" />
+                <img src={logo} />
               </a>
               <svg class="half-circle" viewBox="0 0 106 57">
                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -308,7 +310,7 @@ function App() {
 
             <div className="card-author">
               <a className="author-avatar" href="#">
-                <img src="" />
+                <img src={logo} />
               </a>
               <svg className="half-circle" viewBox="0 0 106 57">
                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
@@ -335,7 +337,7 @@ function App() {
 
             <div className="card-author">
               <a className="author-avatar" href="#">
-                <img src="" />
+                <img src={logo} />
               </a>
               <svg className="half-circle" viewBox="0 0 106 57">
                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
