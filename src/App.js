@@ -2,21 +2,23 @@
 import React, { useState, useEffect } from 'react';
 import './assets/sass/style.scss';
 import './assets/sass/card.scss';
+// import './assets/css/style.css';
+// import './assets/css/card.css';
 import { Typography, Avatar, Grid,makeStyles } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import LocomotiveScroll from "locomotive-scroll";
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import './assets/css/locomotive-scroll.css';
 import './assets/css/locomotive-scroll.min.css';
 
-import profilePic from './images/profile-img.jpeg';
+// import profilePic from './images/profile-img.jpeg';
+import profilePic from './images/profile.jpg';
 import logo from './images/logo.svg';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -24,6 +26,10 @@ const useStyles = makeStyles(() => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+  },
+  large: {
+    width: theme.spacing(10),
+    height: theme.spacing(10),
   },
   
 }));
@@ -34,7 +40,7 @@ function App() {
 
   const [jobNumber, setJobNumber] = useState();
   const [selectedJob, setSelectedJob] = useState();
-  const [target, setTarget] = useState();
+
   var scroll = null;
 
   useEffect(() => {
@@ -56,10 +62,6 @@ function App() {
       });
     });
 
-    // scroll = new LocomotiveScroll({
-    //   el: document.getElementById("main-content-scroll"),
-    //   smooth: true
-    // });
   },[jobNumber]);
 
   var scrollToTarget = ((target) => {
@@ -146,14 +148,16 @@ function App() {
                 <li><a onClick={()=>{scrollToTarget('#experience')}}>Experience</a></li>
                 <li><a onClick={()=>{scrollToTarget('#projects')}}>Projects</a></li>
                 <li><a onClick={()=>{scrollToTarget('#contact')}}>Contact</a></li>
+                <li><a style={{color: '#64ffda'}} href="https://drive.google.com/file/d/1dtBEJefRXvdVmtQKZn6rROv-e_J6v1D6/view?usp=sharing" target="_blank">Resume</a></li>
             </ul>
         </nav>
             <div className="row">
               <div className="col-4">
-                  <span className="profile-img fit"><img src={profilePic} alt="Profile pic" /></span>
-                  {/* <span className="profile-img fit">
-                    <Avatar alt="Remy Sharp"  src={profilePic}/>
-                  </span> */}
+                  <span className="profile-img fit">
+                    <img src={profilePic} alt="Profile pic" />
+                    {/* <Avatar alt="Lam Nguyen" src={profilePic} className={classes.large}/> */}
+                  </span>
+                  
               </div>
               <div className="col-6">
                   <div className="title-content">
@@ -269,8 +273,8 @@ function App() {
             </div>
 
             <div className="tags">
-              <a href="https://github.com/LamNguyen25/task-management-mobile-app">Github</a>
-              <a href="https://github.com/LamNguyen25/task-management-mobile-app">Demo</a>
+              <a href="https://github.com/LamNguyen25/task-management-mobile-app" target="_blank">Github</a>
+              <a href="https://github.com/LamNguyen25/task-management-mobile-app" target="_blank">Demo</a>
             </div>
 
           </article>
@@ -296,8 +300,8 @@ function App() {
             </div>
 
             <div className="tags">
-              <a href="https://github.com/LamNguyen25/Dictionary-App">GitHub</a>
-              <a href="https://github.com/LamNguyen25/Dictionary-App">Demo</a>
+              <a href="https://github.com/LamNguyen25/Dictionary-App" target="_blank">GitHub</a>
+              <a href="https://github.com/LamNguyen25/Dictionary-App" target="_blank">Demo</a>
             </div>
 
           </article>
@@ -323,8 +327,8 @@ function App() {
             </div>
 
             <div className="tags">
-              <a href="https://github.com/LamNguyen25/PlanIt">GitHub</a>
-              <a href="https://github.com/LamNguyen25/PlanIt">Demo</a>
+              <a href="https://github.com/LamNguyen25/PlanIt" target="_blank">GitHub</a>
+              <a href="https://github.com/LamNguyen25/PlanIt" target="_blank">Demo</a>
             </div>
 
           </article>

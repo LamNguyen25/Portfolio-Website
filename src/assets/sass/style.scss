@@ -482,12 +482,14 @@ article {
 .profile-img {
 	display: inline-block;
 	position: relative;
-}
-
-.profile-img img {
-	display: block;
-	width: 100%;
-	border-radius: 50%;
+	// justify-content: center;
+	justify-items: center;
+	img {
+		display: block;
+		width: 70%;
+		border-radius: 50%;
+		margin-left: 40px;
+	}
 }
 
 .row-4 {
@@ -581,6 +583,10 @@ article {
 .sub-title {
 	margin-top: 30px;
 }
+
+a .resume {
+	color: #64ffda;
+}
   
 @-webkit-keyframes opacity {
 	0%, 100% {opacity:0;}
@@ -672,7 +678,7 @@ article {
 	}
 
 	.profile-img {
-		width: 80%;
+		width: 50%;
 	}
 
 	.title-content {
@@ -705,7 +711,7 @@ article {
 	}
 
 	.profile-img {
-		width: 75%;
+		width: 40%;
 	}
 
 	.title-content {
@@ -740,7 +746,7 @@ article {
 
 @media screen and (max-width: 577px) {
 	.profile-img {
-		width: 30%;
+		width: 40%;
 	}
 
 	.title-content {
