@@ -2,10 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import './assets/sass/style.scss';
 import './assets/sass/card.scss';
-// import './assets/css/style.css';
-// import './assets/css/card.css';
 import { Typography, Avatar, Grid,makeStyles } from '@material-ui/core';
-import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import LocomotiveScroll from "locomotive-scroll";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import './assets/css/locomotive-scroll.css';
@@ -15,8 +14,49 @@ import './assets/css/locomotive-scroll.min.css';
 import profilePic from './images/profile.jpg';
 import logo from './images/logo.svg';
 
-let theme = createMuiTheme();
-theme = responsiveFontSizes(theme);
+function pxToRem(value) {
+  return `${value / 16}rem`;
+}
+
+const breakpoints = createBreakpoints({});
+const theme = createMuiTheme({
+  breakpoints,
+  overrides: {
+    MuiTypography: {
+      headline: {
+        fontSize: pxToRem(24),
+        [breakpoints.up("md")]: {
+          fontSize: pxToRem(32)
+        }
+      },
+      title: {
+        fontSize: pxToRem(21),
+        [breakpoints.up("md")]: {
+          fontSize: pxToRem(24)
+        }
+      },
+      body1: {
+        fontSize: pxToRem(14),
+
+        [breakpoints.up("md")]: {
+          fontSize: pxToRem(16)
+        }
+      },
+      body2: {
+        fontSize: pxToRem(14),
+        [breakpoints.up("md")]: {
+          fontSize: pxToRem(16)
+        }
+      },
+      button: {
+        fontSize: pxToRem(14),
+        [breakpoints.up("md")]: {
+          fontSize: pxToRem(16)
+        }
+      }
+    }
+  }
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +75,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  const scrollRef = React.createRef();
   const classes = useStyles();
 
   const [jobNumber, setJobNumber] = useState();
@@ -57,9 +96,9 @@ function App() {
 
     window.addEventListener("load", function(event) {
       let lazyScroll = new LocomotiveScroll({
-      el: document.getElementById("main-content-scroll"),
-      smooth: true
-      });
+        el: document.getElementById("main-content-scroll"),
+        smooth: true
+        });
     });
 
   },[jobNumber]);
@@ -147,20 +186,37 @@ function App() {
                 <li><a onClick={()=>{scrollToTarget('#about')}}>About</a></li>
                 <li><a onClick={()=>{scrollToTarget('#experience')}}>Experience</a></li>
                 <li><a onClick={()=>{scrollToTarget('#projects')}}>Projects</a></li>
-                <li><a onClick={()=>{scrollToTarget('#contact')}}>Contact</a></li>
+                {/* <li><a onClick={()=>{scrollToTarget('#contact')}}>Contact</a></li> */}
                 <li><a style={{color: '#64ffda'}} href="https://drive.google.com/file/d/1dtBEJefRXvdVmtQKZn6rROv-e_J6v1D6/view?usp=sharing" target="_blank">Resume</a></li>
             </ul>
         </nav>
-            <div className="row">
-              <div className="col-4">
-                  <span className="profile-img fit">
+            <div className="row" >
+              <div className="col-4 fit">
+                  <span className="profile-img">
                     <img src={profilePic} alt="Profile pic" />
                     {/* <Avatar alt="Lam Nguyen" src={profilePic} className={classes.large}/> */}
                   </span>
                   
               </div>
-              <div className="col-6">
-                  <div className="title-content">
+              <div className="col-7" >
+
+                <div className="intro-container">
+                  <div className ="intro-box">
+                    <div className="intro-title">
+                      <span className="intro-block"></span>
+                      <h1>Lam Nguyen<span></span></h1>
+                    </div>
+
+                    <div className="intro-role">
+                      <div className="intro-block"></div>
+                      <p>Software Developer</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <div className="d-flex flex-column"> */}
+                  {/* <div className="d-inline-flex p-2" style={{marginTop: '20px'}}>
+                    <div className="title-content">
                       <div className="title-content__container">
                           <p className="title-content__container__text" data-scroll> 
                             Hi, I am
@@ -173,19 +229,23 @@ function App() {
                           <li className="title-content__container__list__item"> Diligent !</li>
                           </ul>
                       </div>
-                      <div className="sub-title">
+                      
+                    </div> */}
+                    {/* <div className="sub-title">
                         <Typography 
-                          variant="subtitle1" 
+                          variant="body1" 
                           color="#858da4" 
                           align="left"
-                          
                         >
                           I am a software engineer based in Los Angeles, CA, offering strong software engineering and application development principles across multiple platforms
                         </Typography>
-                      </div>
-                      
-                    </div>
-                </div>
+                    </div> */}
+                  {/* </div> */}
+                  {/* <div className="p-2"> */}
+                   
+                  {/* </div> */}
+                {/* </div> */}
+              </div>
             </div>
       </section>
 
@@ -289,7 +349,7 @@ function App() {
               <a className="author-avatar" href="#">
                 <img src={logo} />
               </a>
-              <svg class="half-circle" viewBox="0 0 106 57">
+              <svg className="half-circle" viewBox="0 0 106 57">
                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
               </svg>
 

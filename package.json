@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.3",
+    "compass-mixins": "^0.12.10",
+    "compass-sass-mixins": "^0.12.7",
     "locomotive-scroll": "^4.1.0",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
