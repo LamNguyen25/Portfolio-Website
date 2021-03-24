@@ -83,6 +83,7 @@ function App() {
   var scroll = null;
 
   useEffect(() => {
+   
     if(!jobNumber) {
       setJobNumber(1);
       setSelectedJob(displayJob1);
@@ -194,7 +195,6 @@ function App() {
               <div className="col-4 fit">
                   <span className="profile-img">
                     <img src={profilePic} alt="Profile pic" />
-                    {/* <Avatar alt="Lam Nguyen" src={profilePic} className={classes.large}/> */}
                   </span>
                   
               </div>
@@ -259,6 +259,7 @@ function App() {
                   </Typography>
               </Grid>
               <Grid item xs={6} >
+              {/* <h2 data-splitting-chars class="headline headline--ghost">ghosting</h2> */}
               <Typography variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical"
               >Here are a few technologies I've been working with recently:</Typography>
                 <ul className="skill-list" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
