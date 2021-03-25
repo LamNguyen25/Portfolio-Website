@@ -1,8 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import './assets/sass/style.scss';
-import './assets/sass/card.scss';
-import { Typography, Avatar, Grid,makeStyles } from '@material-ui/core';
+import { Typography, Grid,makeStyles } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import LocomotiveScroll from "locomotive-scroll";
@@ -11,6 +9,8 @@ import './assets/css/locomotive-scroll.css';
 import './assets/css/locomotive-scroll.min.css';
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
+import './assets/sass/style.scss';
+import './assets/sass/card.scss';
 import Splitting from "splitting";
 // import profilePic from './images/profile-img.jpeg';
 import profilePic from './images/profile.jpg';
@@ -94,6 +94,7 @@ function App() {
       /* key: Optional String to prefix the CSS variables */
       key: null
     });
+
     if(!jobNumber) {
       setJobNumber(1);
       setSelectedJob(displayJob1);
@@ -260,7 +261,7 @@ function App() {
       </section>
 
       <section id="about" className="wrapper sec-1" data-scroll-section>
-          <div data-splitting className="title headline headline--ghost">About Me</div>
+          <div data-splitting className="title headline--ghost">About Me</div>
           <div className={classes.root }>
             <Grid container spacing={2} > 
               <Grid item xs={6} style={{paddingLeft: '60px'}} >
@@ -270,7 +271,7 @@ function App() {
               </Grid>
               <Grid item xs={6} >
                 {/* <h2 data-splitting className="headline headline--ghost">ghosting</h2> */}
-                <Typography data-splitting className="headline headline--ghost" variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
+                <Typography variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
                   Here are a few technologies I've been working with recently:
                 </Typography>
                 <ul className="skill-list" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
@@ -291,7 +292,7 @@ function App() {
       </section>
 
       <section id="experience" className="wrapper sec-2" data-scroll-section>
-        <div data-splitting className="title headline headline--ghost">Where I've Worked</div>
+        <div data-splitting className="title headline--ghost">Where I've Worked</div>
         <Grid container spacing={2} > 
           <Grid item xs={3} data-scroll> 
             <ul id="job">
@@ -322,7 +323,7 @@ function App() {
         </Grid>
       </section>
       <section id="projects" className="wrapper sec-3" data-scroll-section>
-        <div className="title">Some Things I’ve Built</div>
+        <div data-splitting className="title headline--ghost">Some Things I’ve Built</div>
         <section className="card-list">
           <article className="card">
             <header className="card-header">
