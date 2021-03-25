@@ -9,7 +9,9 @@ import LocomotiveScroll from "locomotive-scroll";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import './assets/css/locomotive-scroll.css';
 import './assets/css/locomotive-scroll.min.css';
-
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
 // import profilePic from './images/profile-img.jpeg';
 import profilePic from './images/profile.jpg';
 import logo from './images/logo.svg';
@@ -83,7 +85,15 @@ function App() {
   var scroll = null;
 
   useEffect(() => {
-   
+    // Splitting();
+    Splitting({
+      /* target: String selector, Element, Array of Elements, or NodeList */
+      target: "[data-splitting]",
+      /* by: String of the plugin name */
+      by: "chars",
+      /* key: Optional String to prefix the CSS variables */
+      key: null
+    });
     if(!jobNumber) {
       setJobNumber(1);
       setSelectedJob(displayJob1);
@@ -250,7 +260,7 @@ function App() {
       </section>
 
       <section id="about" className="wrapper sec-1" data-scroll-section>
-          <div className="title">About Me</div>
+          <div data-splitting className="title headline headline--ghost">About Me</div>
           <div className={classes.root }>
             <Grid container spacing={2} > 
               <Grid item xs={6} style={{paddingLeft: '60px'}} >
@@ -259,9 +269,10 @@ function App() {
                   </Typography>
               </Grid>
               <Grid item xs={6} >
-              {/* <h2 data-splitting-chars class="headline headline--ghost">ghosting</h2> */}
-              <Typography variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical"
-              >Here are a few technologies I've been working with recently:</Typography>
+                {/* <h2 data-splitting className="headline headline--ghost">ghosting</h2> */}
+                <Typography data-splitting className="headline headline--ghost" variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
+                  Here are a few technologies I've been working with recently:
+                </Typography>
                 <ul className="skill-list" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
                   <li><PlayArrowIcon style={{ color: '#64ffda' }}/> JavaScript</li>
                   <li><PlayArrowIcon style={{ color: '#64ffda' }}/> Java</li>
@@ -280,7 +291,7 @@ function App() {
       </section>
 
       <section id="experience" className="wrapper sec-2" data-scroll-section>
-        <div className="title">Where I've Worked</div>
+        <div data-splitting className="title headline headline--ghost">Where I've Worked</div>
         <Grid container spacing={2} > 
           <Grid item xs={3} data-scroll> 
             <ul id="job">
@@ -422,6 +433,7 @@ function App() {
           </article>
         </section>
       </section>
+      <script> Splitting(); </script>
       </div>
     </ThemeProvider>
 
