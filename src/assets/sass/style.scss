@@ -38,6 +38,7 @@ section, summary, time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+
 	font: inherit;
 	vertical-align: baseline;}
 
@@ -45,8 +46,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
-body {
+html, body {
 	line-height: 1;
+	overflow-x: hidden;
 }
 
 ol, ul {
@@ -947,6 +949,26 @@ a .resume {
 		bottom: 20px;
         transform: translate(-100%, 60%);
 	}
+
+	.bio-container {
+		display: flex;
+
+		li {
+			font-size: 8px;
+		}
+		.skill-list {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(100px, 150px));
+			padding: 0px;
+			margin: 10px 0px 0px;
+			overflow: hidden;
+		}
+		.list-icon {
+			width: 10px;
+			height: 10px;
+		}
+	}
+	
 	
 
 }
