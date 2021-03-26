@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Grid,makeStyles } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaTimes } from 'react-icons/fa';
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import LocomotiveScroll from "locomotive-scroll";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
@@ -81,11 +83,13 @@ function App() {
 
   const [jobNumber, setJobNumber] = useState();
   const [selectedJob, setSelectedJob] = useState();
+  const [hambugerClick, setHambugerClick] = useState(false);
+  const [navButton, setNavButton] = useState(true);
 
   var scroll = null;
 
   useEffect(() => {
-    // Splitting();
+    buttonWindowHandle();
     Splitting({
       /* target: String selector, Element, Array of Elements, or NodeList */
       target: "[data-splitting]",
@@ -124,6 +128,23 @@ function App() {
     scroll.scrollTo(sectionID);
   })
 
+  const _onHandleClick = () => {
+    setHambugerClick(!hambugerClick);
+  }
+
+  const _closeMenuOnMobile = () => {
+    setHambugerClick(false);
+  }
+
+
+  // Close the NavBar menu if the window size is equal mobile size
+  const buttonWindowHandle = () => {
+    if(window.innerHeight <= 736) {
+        setNavButton(false);
+    } else {
+        setNavButton(true);
+    }
+  };
   var displayJob1 = (() => {
     return (
       <Grid item xs container direction="column" spacing={2} alignItems="flex-start">
@@ -192,15 +213,21 @@ function App() {
     <ThemeProvider theme={theme}>
     <div className="container-fluid p-0 m-0" id="main-content-scroll" data-scroll-container>
       <section id="home" className="wrapper" data-scroll-section>
-        <nav id="navbar">
-            <ul>
-                <li><a onClick={()=>{scrollToTarget('#home')}}>Home</a></li>
-                <li><a onClick={()=>{scrollToTarget('#about')}}>About</a></li>
-                <li><a onClick={()=>{scrollToTarget('#experience')}}>Experience</a></li>
-                <li><a onClick={()=>{scrollToTarget('#projects')}}>Projects</a></li>
+        <nav id="navbar" >
+          <div className="navbar-container navContainer">
+            <div className="menu-icon" onClick={_onHandleClick}>
+              {hambugerClick ? <FaTimes size="36"/> : <GiHamburgerMenu size="36"/>}
+            </div>
+            <ul className={hambugerClick ? 'nav-menu active' : 'nav-menu'}>
+                <li className="nav-item"><a onClick={()=>{scrollToTarget('#home'); setHambugerClick(false);}}>Home</a></li>
+                <li className="nav-item"><a onClick={()=>{scrollToTarget('#about'); setHambugerClick(false)}}>About</a></li>
+                <li className="nav-item"><a onClick={()=>{scrollToTarget('#experience'); setHambugerClick(false)}}>Experience</a></li>
+                <li className="nav-item"><a onClick={()=>{scrollToTarget('#projects'); setHambugerClick(false)}}>Projects</a></li>
                 {/* <li><a onClick={()=>{scrollToTarget('#contact')}}>Contact</a></li> */}
-                <li><a style={{color: '#64ffda'}} href="https://drive.google.com/file/d/1dtBEJefRXvdVmtQKZn6rROv-e_J6v1D6/view?usp=sharing" target="_blank">Resume</a></li>
+                <li className="nav-item"><a onClick={() => setHambugerClick(false)} style={{color: '#64ffda'}} href="https://drive.google.com/file/d/1dtBEJefRXvdVmtQKZn6rROv-e_J6v1D6/view?usp=sharing" target="_blank">Resume</a></li>
             </ul>
+          </div>
+           
         </nav>
             <div className="row" >
               <div className="col-4 fit">
@@ -224,38 +251,6 @@ function App() {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="d-flex flex-column"> */}
-                  {/* <div className="d-inline-flex p-2" style={{marginTop: '20px'}}>
-                    <div className="title-content">
-                      <div className="title-content__container">
-                          <p className="title-content__container__text" data-scroll> 
-                            Hi, I am
-                          </p>
-                          
-                          <ul className="title-content__container__list" data-scroll>
-                          <li className="title-content__container__list__item"> Lam Nguyen !</li>
-                          <li className="title-content__container__list__item"> Energetic !</li>
-                          <li className="title-content__container__list__item"> Humble !</li>
-                          <li className="title-content__container__list__item"> Diligent !</li>
-                          </ul>
-                      </div>
-                      
-                    </div> */}
-                    {/* <div className="sub-title">
-                        <Typography 
-                          variant="body1" 
-                          color="#858da4" 
-                          align="left"
-                        >
-                          I am a software engineer based in Los Angeles, CA, offering strong software engineering and application development principles across multiple platforms
-                        </Typography>
-                    </div> */}
-                  {/* </div> */}
-                  {/* <div className="p-2"> */}
-                   
-                  {/* </div> */}
-                {/* </div> */}
               </div>
             </div>
       </section>
