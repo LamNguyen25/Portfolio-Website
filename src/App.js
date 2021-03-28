@@ -141,7 +141,7 @@ function App() {
 
   // Close the NavBar menu if the window size is equal mobile size
   const buttonWindowHandle = () => {
-    if(window.innerHeight <= 736) {
+    if(window.innerHeight <= 768) {
         setNavButton(false);
     } else {
         setNavButton(true);

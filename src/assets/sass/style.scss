@@ -48,11 +48,25 @@ footer, header, hgroup, menu, nav, section {
 
 html, body {
 	line-height: 1;
-	overflow-x: hidden;
 }
 
 body {
-	-webkit-text-size-adjust: none;
+	margin: 0;
+	width: 100%;
+	min-height: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.3;
+
+	@media (max-width: 480px) {
+		font-size: 18px;
+	}
+
+	&.hidden {
+		overflow: hidden;
+	}
 }
 
 mark {
@@ -141,12 +155,6 @@ input, select, textarea {
 		font-size: 0.8em;
 	}
 
-	blockquote {
-		border-left: solid 0.75em #eee;
-		padding: 1em 0 1em 1.5em;
-		font-style: italic;
-	}
-
 	h1, h2, h3, h4, h5, h6 {
 		// color: #3e3e3e;
 		margin: 0 0 0.75em 0;
@@ -189,14 +197,6 @@ input, select, textarea {
 		clear: both;
 	}
 
-	hr {
-		border: 0;
-		border-top: solid 1px #444;
-		border-top-color: rgba(0, 0, 0, 0.35);
-		box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
-		height: 1px;
-		margin: 3em 0;
-	}
 
 	#about p {
 		color: #a0c4ff;
@@ -235,6 +235,7 @@ input, select, textarea {
 .container-fluid {
 	text-align: center;
 	position: absolute;
+	overflow-x: hidden;
 }
 
 article {
@@ -897,13 +898,10 @@ a .resume {
 		width: 100%;
 	}
 
-	.profile-img {
-		// width: 50%;
-	}
 
 }
 
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 768px) {
 
 	.container {
 		width: 100%;
@@ -911,7 +909,7 @@ a .resume {
 	}
 
 	.profile-img {
-		width: 70%;
+		width: 80%;
 	}
 	.nav-menu {
         display: flex;
@@ -999,7 +997,9 @@ a .resume {
 }
 
 @media screen and (max-width: 600px) {
-	
+	.selected-job-btn {
+		font: 400 13.3333px Arial;
+	}
 	
 	.intro-container .intro-box .intro-title h1 {
 		font-size: 26px;
@@ -1008,9 +1008,12 @@ a .resume {
 	.intro-container .intro-box .intro-title p {
 		font-size: 16px;
 	}
-
-
-
 	
 }
 
+@media screen and (max-width: 400px) {
+	.selected-job-btn {
+		font: 300 11.3333px Arial;
+	}
+
+}
