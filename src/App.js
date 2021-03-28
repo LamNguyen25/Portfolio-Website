@@ -13,10 +13,12 @@ import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import './assets/sass/style.scss';
 import './assets/sass/card.scss';
+import './assets/sass/about.scss';
 import Splitting from "splitting";
-// import profilePic from './images/profile-img.jpeg';
 import profilePic from './images/profile.jpg';
 import logo from './images/logo.svg';
+
+import About from './pages/about';
 
 function pxToRem(value) {
   return `${value / 16}rem`;
@@ -255,36 +257,7 @@ function App() {
             </div>
       </section>
 
-      <section id="about" className="wrapper sec-1" data-scroll-section>
-          <div data-splitting className="title headline--ghost">About Me</div>
-          <div className={classes.root }>
-            <Grid container spacing={2} className="bio-container"> 
-              <Grid item xs={6} style={{paddingLeft: '50px'}} >
-                  <Typography variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
-                      Hello! I'm Lam, a software engineer based in Los Angeles, CA. I am a fast learner with a strong work ethic in a team or individual setting to drive product success and process efficiency
-                  </Typography>
-              </Grid>
-              <Grid item xs={6} style={{paddingRight: '50px'}}>
-                {/* <h2 data-splitting className="headline headline--ghost">ghosting</h2> */}
-                <Typography variant="subtitle1" align="left" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
-                  Here are a few technologies I've been working with recently:
-                </Typography>
-                <ul className="skill-list" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/>JavaScript</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> Java</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> Node.js</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> MongoDB</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> Cloud Firestore</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> HTML & (S)CSS</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> ReactJS</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> React Native</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> jQuery</li>
-                  <li><PlayArrowIcon className="list-icon" style={{ color: '#64ffda' }}/> Git</li>
-                </ul>
-              </Grid>
-            </Grid>
-          </div>
-      </section>
+      <About />
 
       <section id="experience" className="wrapper sec-2" data-scroll-section>
         <div data-splitting className="title headline--ghost">Where I've Worked</div>
