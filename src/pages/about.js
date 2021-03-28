@@ -10,7 +10,7 @@ const About = () => {
             <div data-splitting className="title headline--ghost">About Me</div>
             <div className="inner">
                 <div className="intro-bio">
-                    <p>Hello! I'm Lam, a software engineer based in Los Angeles, CA.</p>
+                    <p>Hello! I'm Lam, a software engineer based in Los Angeles, CA. </p>
                     <p> I am a fast learner with a strong work ethic in a team or individual 
                         setting to drive product success and process efficiency!
                     </p>

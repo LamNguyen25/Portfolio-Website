@@ -158,7 +158,7 @@ input, select, textarea {
 	}
 
 	h2, h3, h4, h5, h6 {
-		font-weight: 700;
+		font-weight: 500;
 	}
 
 	h1 {
@@ -737,10 +737,6 @@ article {
   
 // Ghost words
 
-// .headline {
-// 	color: #a0c4ff;
-// }
-
 .headline--ghost {
 	.char {
 		--name: rise;
@@ -791,9 +787,7 @@ article {
 	  }
 	}
 }
-// .splitting .char::before, .splitting .char::after {
-// 	  visibility: visible;
-//   }
+
 
 .sub-title {
 	margin-top: 30px;
@@ -859,6 +853,18 @@ a .resume {
 	83.3%,95.96% {transform:translate3d(0,-25%,0);}
   }
   
+.experience{
+	text-align: left;
+	h3{
+		line-height: 1.3;
+	}
+	.exp-date p {
+		font-weight: 300;
+		font-size: 13px;
+		font-family: monospace;
+	}
+
+}
 
   /* Media */
 @media screen and (max-width: 1680px) {
@@ -981,6 +987,13 @@ a .resume {
 		}
 	}
 	
+	h3 {
+		font-size: 18px;
+
+	}
+	p {
+		font-size: 14px;
+	}
 	
 
 }

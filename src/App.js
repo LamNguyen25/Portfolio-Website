@@ -150,29 +150,25 @@ function App() {
   var displayJob1 = (() => {
     return (
       <Grid item xs container direction="column" spacing={2} alignItems="flex-start">
-      <Grid item xs>
-        <Typography variant="h5" component="h2" align="left">
-          Software engineer Intern 
-          <span style={{color: '#2a9d8f'}}> @ Skipli</span>
-        </Typography>
-        <Typography variant="subtitle2" align="left">
-          January 2021 - Present
-        </Typography>
+      <Grid item xs className="experience">
+        <h3>Software engineer Intern <span style={{color: '#2a9d8f'}}> @ Skipli</span></h3>
+        <p className="exp-date">January 2021 - Present</p>
+        
       </Grid>
       <Grid item xs>
         <div className="display-row">
           <PlayArrowIcon style={{ color: '#2a9d8f', marginRight: '10px' }}/>
-          <Typography variant="subtitle1" align="left">Design & create a mobile application for the restaurant’s guests to download on their smartphone (Android & iOS) using React Native, Firebase Real-time Database (DB), and NodeJS</Typography>
+          <Typography variant="body1" gutterBottom align="left">{`Design & create a mobile application for the restaurant’s guests to download on their smartphone (Android & iOS) using React Native, Firebase Real-time Database (DB), and NodeJS `}</Typography>
         </div>
         
         <div className="display-row">
           <PlayArrowIcon style={{ color: '#2a9d8f', marginRight: '10px' }}/>
-          <Typography variant="subtitle1" align="left">Allow guests to collect loyalty points from each purchase and place orders through Skipli Checkout</Typography>
+          <Typography variant="body1" gutterBottom align="left">{`Allow guests to collect loyalty points from each purchase and place orders through Skipli Checkout`}</Typography>
         </div>
 
         <div className="display-row">
           <PlayArrowIcon style={{ color: '#2a9d8f', marginRight: '10px' }}/>
-          <Typography variant="subtitle1" align="left">Utilize Facebook & IG API to show guests the restaurant’s Facebook and Instagram posts</Typography>
+          <Typography variant="body1" gutterBottom align="left">{`Utilize Facebook & IG API to show guests the restaurant’s Facebook and Instagram posts`}</Typography>
         </div>
       </Grid>
     </Grid>
@@ -182,29 +178,27 @@ function App() {
   var displayJob2 = (() => {
     return (
       <Grid item xs container direction="column" spacing={2} alignItems="flex-start">
-      <Grid item xs>
-        <Typography variant="h5" component="h2" align="left">
+      <Grid item xs className="experience">
+        <h3>
           Full Stack Web Developer Intern 
           <span style={{color: '#2a9d8f'}}> @ VNPN</span>
-        </Typography>
-        <Typography variant="subtitle2" align="left">
-          Sep. 2020 – Dec. 2020
-        </Typography>
+        </h3>
+        <p className="exp-date" >Sep. 2020 – Dec. 2020 </p>
       </Grid>
       <Grid item xs>
         <div className="display-row">
           <PlayArrowIcon style={{ color: '#2a9d8f', marginRight: '10px' }}/>
-          <Typography variant="subtitle1" align="left">Developed, modified, and tested login and other features using OAuth2 flow with backend written in NodeJS, and single-page-application registration process using MVC model, served over 10 million visits since 2018, successfully created 2,000 mentorship sessions since 2018</Typography>
+          <Typography variant="body1" gutterBottom align="left">{`Developed, modified, and tested login and other features using OAuth2 flow with backend written in NodeJS, and single-page-application registration process using MVC model, served over 10 million visits since 2018, successfully created 2,000 mentorship sessions since 2018`}</Typography>
         </div>
         
         <div className="display-row">
           <PlayArrowIcon style={{ color: '#2a9d8f', marginRight: '10px' }}/>
-          <Typography variant="subtitle1" align="left">Utilized HTML, CSS, and JavaScript to update the web system/responsive layouts, improve user experience, and add new functionalities while making use of NoSQL databases (MongoDB)</Typography>
+          <Typography variant="body1" gutterBottom align="left">{`Utilized HTML, CSS, and JavaScript to update the web system/responsive layouts, improve user experience, and add new functionalities while making use of NoSQL databases (MongoDB)`}</Typography>
         </div>
 
         <div className="display-row">
           <PlayArrowIcon style={{ color: '#2a9d8f', marginRight: '10px' }}/>
-          <Typography variant="subtitle1" align="left">Maintained frequent communication and high productivity while working remotely</Typography>
+          <Typography variant="body1" gutterBottom align="left">{`Maintained frequent communication and high productivity while working remotely`}</Typography>
         </div>
       </Grid>
     </Grid>
@@ -264,7 +258,7 @@ function App() {
         <Grid container spacing={2} > 
           <Grid item xs={3} data-scroll> 
             <ul id="job">
-              <li>
+              <li >
                 <button 
                   className="selected-job-btn" 
                   style={{marginBottom: '10px'}} 
